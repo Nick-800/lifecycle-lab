@@ -46,9 +46,9 @@ class _LifecycleLabAppState extends State<LifecycleLabApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Lifecycle Lab',
+      title: 'Lifecycle',
       home: Scaffold(
-        body: Center(child: Text('Lab')),
+        body: Center(child: Text('Lifecycle')),
       ),
     );
   }
