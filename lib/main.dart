@@ -12,10 +12,28 @@ class LifecycleLabApp extends StatefulWidget {
 }
 
 class _LifecycleLabAppState extends State<LifecycleLabApp> {
+  late final AppLifecycleListener _listener;
+
   @override
   void initState() {
     super.initState();
     log('Created');
+
+    _listener = AppLifecycleListener(
+      onResume: () => log('Activated'),
+      onInactive: () => log('Deactivated'),
+      onHide: () => log('Hidden'),
+      onPause: () => log('Stopped'),
+      onRestart: () => log('Resumed'),
+      onShow: () => log('Shown'),
+      onDetach: () => log('Destroying'),
+    );
+  }
+
+  @override
+  void dispose() {
+    _listener.dispose();
+    super.dispose();
   }
 
   static void log(String name) {
